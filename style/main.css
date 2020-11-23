@@ -54,17 +54,21 @@ img.logo{
     background-color: rgba(0,0,0,0.4); 
 }
 .ConteudoAnime{
-    width: 60%;
+    width: 80%;
     background-color: #fff;
     padding: 2rem;
     margin: 10rem auto;
 }
-.ConteudoAnime span{
+.ConteudoAnime .fechar{
     background-color: red;
     float: right;
     color: white;
     font-weight: bold;
     padding: 0.5rem;
+}
+.ConteudoAnime h2{
+    padding: 10px;
+    text-align: center;
 }
 .central{
     display: flex;
@@ -112,4 +116,21 @@ footer{
     font-size: 1.5rem;
     color: rgb(246, 246, 246);
     text-shadow: 0 0 10px #000;
+}
+/*CSS de elementos externos*/
+div.g_bubble{
+    padding: 15px;
+    width: 500px;
+    margin: 5px;
+    display: flex;
+    background-color: #5fdb73;
+}
+.g_bubble a{
+    display: inline;
+}
+.g_bubble img{
+    max-width: 100px;
+}
+.tooltip .wrapper{
+    display: none;
 }

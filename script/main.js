@@ -47,17 +47,20 @@ function buscar(texto){
 }
 function informacoes(caminho){
     let linkanidb = `https://enigmatic-sierra-60542.herokuapp.com/https://anidb.net${caminho}`
-    let anime = {}
     //Junta as informações em um Objeto
     fetch(linkanidb).then(resp => resp.text()).then(DOManidb =>{
         let dom = new DOMParser()
         let doc = dom.parseFromString(DOManidb,"text/html")
         //Captura dos dados do Anidb
-        anime.titulo = doc.querySelectorAll('td.value label')[0].innerText
-        anime.equipe = doc.querySelector('#stafflist')
-        anime.descricao = doc.querySelector('[itemprop="description"]')
-        anime.personagens = doc.querySelectorAll('.medium')
-        anime.imagem = doc.querySelector('.g_image').attributes[1].value
+        let anime = {
+            "titulo": doc.querySelectorAll('td.value label')[0].innerText,
+            "equipe": doc.querySelector('#stafflist'),
+            "descricao":doc.querySelector('[itemprop="description"]'),
+            "personagens": doc.querySelectorAll('.medium'),
+            "imagem":doc.querySelector('.g_image').attributes[1].value
+        }
+        console.log(anime)
+        montapagina(anime)
     })
     
     /*
@@ -69,24 +72,38 @@ function informacoes(caminho){
         //Pega o primeiro link de vídeo, captura o href, o replace é usado para que o vídeo funcione no embed lá na frente na hora de preencher a página
         let href = doc.querySelector('a#video-title').attributes[3].value.replace('watch?v=', 'embed/')
         anime.abertura = `https://www.youtube.com${href}`
-    })*/    
-    console.log(anime.imagem)
+    })*/
 
-    return montapagina(anime)
 }
 function abrirmodal(){
     let caixamodal = document.createElement('div')
     caixamodal.classList.add('ModalAnime')
     let conteudo = document.createElement('div')
     conteudo.classList.add('ConteudoAnime')
+    let fechar = conteudo.appendChild(document.createElement('span'))
+    fechar.appendChild(document.createTextNode("Fechar"))
+    fechar.setAttribute('onclick', 'fecharModal()')
+    fechar.classList.add('fechar')
     caixamodal.appendChild(conteudo)
     document.body.appendChild(caixamodal)
 }
-function montapagina(objanime){
+function fecharModal(){
+    let modal = document.querySelector('.ModalAnime')
+    modal.remove()
+}
+function montapagina(objanime){ 
     abrirmodal()
     let modal = document.querySelector('.ConteudoAnime')
+    let title = document.createElement('h2')
+    title.appendChild(document.createTextNode(objanime.titulo))
+    modal.appendChild(title)
     let img = document.createElement('img')
     img.setAttribute('src', `${objanime.imagem}`)
     modal.appendChild(img)
-    console.log(modal.innerHTML)
+    modal.appendChild(objanime.descricao)
+    let personagens = document.createElement('div')
+    personagens.classList.add('personagens')
+    //objanime.personagens.forEach(div => personagens.appendChild(div))
+    //modal.appendChild(personagens)
+    modal.appendChild(objanime.equipe)
 }
