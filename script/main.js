@@ -103,7 +103,7 @@ function montapagina(objanime){
     modal.appendChild(personagens)
     modal.appendChild(objanime.equipe)
     //Arruma os links
-    document.querySelectorAll('.g_bubble a').forEach(link => {
+    document.querySelectorAll('.stripe a').forEach(link => {
         let anterior = link.attributes['href'].value
         let novo = 'https://anidb.net'+anterior
         link.setAttribute('href', novo)
