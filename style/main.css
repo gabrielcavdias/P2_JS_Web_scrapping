@@ -27,7 +27,7 @@ img.logo{
 }
 .output{
     padding: 10px;
-    border-bottom: 1px solid var(--sec-color);
+    border-bottom: 1px solid rgb(216, 216, 216);
 }
 .output ul{
     list-style-type: none;
@@ -69,16 +69,23 @@ img.logo{
 .ConteudoAnime h2{
     padding: 10px;
     text-align: center;
+    font-size: 2rem;
+}
+.ConteudoAnime h2:nth-child(2){
+    text-transform: uppercase;
+}
+.ConteudoAnime img{
+    display: block;
+    margin: 0 auto;
 }
 .central{
     display: flex;
-    justify-content: space-between  ;
+    justify-content: space-around;
 }
 main{
     display: block;
     width: 90%;
     margin: 0 auto;
-    border-right: 1px solid var(--sec-color);
 }
 main h2, main p{
     margin: 15px;
@@ -86,9 +93,49 @@ main h2, main p{
 }
 .em-alta{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
-    padding: 30px;
+    padding: 10px;
+}
+.em-alta div{
+    margin-top: 1rem;
+    border: 2px solid var(--main-color);
+    height: 495px;
+    width: 350px;
+}
+.em-alta div:nth-child(1){
+    background-image: url(../img/em-alta-1.jpg);
+}
+.em-alta div:nth-child(2){
+    background-image: url(../img/em-alta-2.jpg);
+}
+.em-alta div:nth-child(3){
+    background-image: url(../img/em-alta-3.jpg);
+}
+.em-alta div:nth-child(4){
+    background-image: url(../img/em-alta-4.jpg);
+}
+.em-alta div:nth-child(5){
+    background-image: url(../img/em-alta-5.jpg);
+}
+.em-alta div:nth-child(6){
+    background-image: url(../img/em-alta-6.jpg);
+}
+.em-alta div p{
+    margin: 0;
+    font-size: 2rem;
+    color: #f8f8f8;
+    text-shadow: 0 0 10px #fff;
+    cursor: pointer;
+    padding-bottom: 457px;
+    background-color: rgba(0, 0, 0, 0.555);
+    transition: 0.8s;
+}
+.em-alta div p:hover{
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(5, 5, 5);
+    padding-top: 370px;
+    transition: 0.8s;
 }
 .em-alta img{
     margin-top: 2rem;
@@ -100,6 +147,7 @@ aside{
     padding: 20px;
     max-width: 300px;
     min-width: 300px;
+    font-size: 0.9rem;
 }
 aside>div{
     margin: 2rem 0;
@@ -119,18 +167,43 @@ footer{
 }
 /*CSS de elementos externos*/
 div.g_bubble{
-    padding: 15px;
+    padding: 20px;
+    font-size: 1.2rem;
     width: 500px;
-    margin: 5px;
-    display: flex;
+    margin: 1rem auto;
+    display: block;
     background-color: #5fdb73;
+}
+div.g_bubble img{
+    float: left;
+    margin-right: 1rem;
 }
 .g_bubble a{
     display: inline;
 }
+[itemprop="name"]:nth-of-type(odd){
+    font-size: 2rem;
+    color: black;
+    text-decoration: none;
+}
 .g_bubble img{
     max-width: 100px;
 }
-.tooltip .wrapper{
+.tooltip .wrapper,.actions, .edit_actions{
     display: none;
+}
+.edit_actions{
+    display: none;
+}
+#stafflist table{
+    margin: 1rem auto;
+    border-collapse: collapse;
+}
+#stafflist th{
+    font-size: 1.2rem;
+    background-color: var(--main-color);
+}
+#stafflist td, #stafflist th{
+    border: 1px solid rgb(0, 0, 0);
+    padding: 10px;
 }
